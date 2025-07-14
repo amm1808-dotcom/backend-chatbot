@@ -21,6 +21,9 @@ const ai = new GoogleGenAI({
   apiKey: process.env.API_KEY, // Ganti dengan API Key kamu
 });
 
+app.get("/", (req, res) => {
+  res.send("Hello!");
+});
 app.get("/api", (req, res) => {
   res.send("Hello World!");
 });
