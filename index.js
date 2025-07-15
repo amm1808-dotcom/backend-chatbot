@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import { GoogleGenAI } from "@google/genai";
-import serverless from "serverless-http";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -12,7 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "*",
+    origin: process.env.ORIGIN,
   })
 );
 
@@ -64,4 +63,4 @@ if (process.env.NODE_ENV === "development") {
   });
 }
 
-export default serverless(app);
+export default app;
